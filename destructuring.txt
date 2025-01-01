@@ -1,0 +1,109 @@
+1. Count the Occurrences
+javascript
+code
+function countOccurrences(text) {
+  const words = text.split(' ');
+  const wordCount = new Map();
+
+  words.forEach(word => {
+    word = word.toLowerCase();
+    if (wordCount.has(word)) {
+      wordCount.set(word, wordCount.get(word) + 1);
+    } else {
+      wordCount.set(word, 1);
+    }
+  });
+
+  return wordCount;
+}
+
+const text = "hello world hello universe hello";
+console.log(countOccurrences(text));
+
+Explanation:
+
+The text is split into words using split(' ').
+A Map is used to count the occurrences of each word. If the word is already present, its count is incremented; otherwise, it is added with an initial count of 1.
+
+2. Only Unique Items Are Allowed
+javascript
+code
+function uniqueItems(arr) {
+  return new Set(arr);
+}
+
+const numbers = [1, 2, 3, 4, 2, 5, 3, 6, 1];
+console.log(uniqueItems(numbers));
+
+Explanation:
+
+The Set data structure is used to automatically filter out duplicates from the array.
+
+3. Swap the Values
+javascript
+code
+function swapValues(x, y) {
+  [x, y] = [y, x];
+  return [x, y];
+}
+
+let x = 5;
+let y = 10;
+console.log(swapValues(x, y)); // Output: [10, 5]
+
+Explanation:
+
+The destructuring assignment [x, y] = [y, x] is used to swap the values of x and y without needing a temporary variable.
+
+4. Access Random Elements
+javascript
+code
+function extractElements(arr) {
+  const [first, second, , , last] = arr;
+  return [first, second, last];
+}
+
+const numbers = [1, 2, 3, 4, 5];
+console.log(extractElements(numbers)); // Output: [1, 2, 5]
+
+Explanation:
+
+Destructuring assignment is used to extract the first, second, and last elements of the array. The rest are ignored using commas.
+5. Min and Max Values
+javascript
+code
+function findMinMax(arr) {
+  const max = Math.max(...arr);
+  const min = Math.min(...arr);
+  return { max, min };
+}
+
+const numbers = [5, 2, 7, 1, 9];
+console.log(findMinMax(numbers)); // Output: { max: 9, min: 1 }
+
+Explanation:
+
+The spread operator ... is used to pass the elements of the array as arguments to Math.max() and Math.min() to find the maximum and minimum values, respectively.
+
+6. Nested Objects
+javascript
+code
+function extractNameAndStreet(person) {
+  const { name, address: { street } } = person;
+  return { name, street };
+}
+
+const person = {
+  name: "Mithun",
+  age: 21,
+  address: {
+    street: "B8, Block B, Industrial Area.",
+    city: "Sector 62, Noida",
+    state: "Uttar Pradesh"
+  }
+};
+
+console.log(extractNameAndStreet(person)); // Output: { name: "Mithun", street: "B8, Block B, Industrial Area." }
+Explanation:
+
+Destructuring is used to extract the name and street properties from the nested address object in the person object.
